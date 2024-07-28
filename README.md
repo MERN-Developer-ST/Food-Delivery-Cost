@@ -16,7 +16,7 @@ This project provides an in-depth analysis of food delivery costs using a datase
  
  --> The first step involves loading the dataset into a pandas DataFrame and inspecting its structure to understand the data.
 
- --> 
+ --> **Code**
       import pandas as pd
       df = pd.read_csv("food delivery costs.csv")
       df.head()
@@ -27,7 +27,7 @@ This project provides an in-depth analysis of food delivery costs using a datase
    
 --> Next, we convert the order and delivery date columns to datetime objects to facilitate date and time operations.
 
---> 
+--> **Code**
       df["Order Date and Time"] = pd.to_datetime(df['Order Date and Time'])
       df["Delivery Date and Time"] = pd.to_datetime(df["Delivery Date and Time"])
       df.info()
@@ -60,7 +60,7 @@ This project provides an in-depth analysis of food delivery costs using a datase
 
 --> In this step, we calculate the total costs incurred for each order and then determine the profit by subtracting these costs from the commission fee.
 
--->
+--> **Code**
    df["Costs"] = df["Delivery Fee"] + df['Discounts and Offers'] + df["Payment Processing Fee"]
    df["Profit"] = df["Commission Fee"] - df['Costs']
 
@@ -69,7 +69,7 @@ This project provides an in-depth analysis of food delivery costs using a datase
 
 --> We aggregate the cost components to understand their distribution across the dataset.
 
--->
+--> **Code**
    cost_dist = df[["Delivery Fee", "Payment Processing Fee", "Discounts and Offers"]].sum()
    
 
@@ -82,7 +82,7 @@ This project provides an in-depth analysis of food delivery costs using a datase
 
 
    
--->
+--> **Code**
    import matplotlib.pyplot as plt
 
    # Pie Chart for Cost Distribution
